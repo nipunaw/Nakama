@@ -11,7 +11,7 @@ import SwiftUI
 struct NakamaApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NakamaView()
         }
 
         ImmersiveSpace(id: "ImmersiveSpace") {

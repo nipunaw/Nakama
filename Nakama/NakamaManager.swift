@@ -11,7 +11,7 @@ class NakamaManager: ObservableObject {
 
     @Published private var YourNakama: Nakama
 
-    init(name: String, type: Type) {
+    init(name: String, type: Nakama.Types) {
         YourNakama = Nakama(name: name, type: type)
     }
 
