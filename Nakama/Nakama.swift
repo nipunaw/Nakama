@@ -8,19 +8,19 @@
 import Foundation
 
 struct Nakama {
-    let name: String
-    let type: Types
+    var name: String
+    var element: Element
     private(set) var friendship: Int
     private(set) var stats: Stats
 
-    init(name: String, type: Types) {
+    init(name: String, element: Element) {
         self.name = name
-        self.type = type
+        self.element = element
         self.friendship = 0
         self.stats = Stats(attack: Int.random(in: 1...3), defense: Int.random(in: 1...3), agility: Int.random(in: 1...3))
     }
 
-    enum Types {
+    enum Element: String, CaseIterable {
         case fire
         case water
         case earth

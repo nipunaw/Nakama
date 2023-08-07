@@ -9,10 +9,10 @@ import SwiftUI
 
 class NakamaManager: ObservableObject {
 
-    @Published private var YourNakama: Nakama
+    @Published var YourNakama: Nakama
 
-    init(name: String, type: Nakama.Types) {
-        YourNakama = Nakama(name: name, type: type)
+    init(name: String, element: Element) {
+        YourNakama = Nakama(name: name, element: element)
     }
 
 
