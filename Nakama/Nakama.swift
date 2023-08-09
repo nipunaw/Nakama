@@ -38,13 +38,3 @@ struct Stats {
         self.agility = agility
     }
 }
-
-struct Item {
-    private let name: String
-    private let statModifiers: Stats
-
-    init(name: String, statModifiers: Stats) {
-        self.name = name
-        self.statModifiers = statModifiers
-    }
-}
