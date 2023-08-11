@@ -28,9 +28,9 @@ struct Nakama {
 }
 
 struct Stats {
-    fileprivate var attack: Int
-    fileprivate var defense: Int
-    fileprivate var agility: Int
+    private(set) var attack: Int
+    private(set) var defense: Int
+    private(set) var agility: Int
 
     init(attack: Int, defense: Int, agility: Int) {
         self.attack = attack

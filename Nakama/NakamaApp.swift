@@ -12,7 +12,7 @@ struct NakamaApp: App {
     var body: some Scene {
         WindowGroup {
             let manager = NakamaManager(name: "", element: Element.fire)
-            NakamaView(manager: manager)
+            NakamaAttributesView(manager: manager)
         }
 
         ImmersiveSpace(id: "ImmersiveSpace") {

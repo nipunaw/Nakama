@@ -8,8 +8,8 @@
 import Foundation
 
 struct Inventory {
-    private var items: [Item]
-    private var full: Bool {
+    private(set) var items: [Item]
+    var full: Bool {
         items.count > 10
     }
     
@@ -17,13 +17,23 @@ struct Inventory {
         self.items = items
     }
     
-    struct Item {
-        private let name: String
-        private let statModifiers: Stats
+    struct Item: Identifiable {
+        let name: String
+        let statModifiers: Stats
+        let slot: Slot
+        let id: Int
 
-        init(name: String, statModifiers: Stats) {
+        init(name: String, statModifiers: Stats, slot: Slot, id: Int) {
             self.name = name
             self.statModifiers = statModifiers
+            self.slot = slot
+            self.id = id
+        }
+        
+        enum Slot {
+            case weapon
+            case armor
+            case accessory
         }
     }
 
