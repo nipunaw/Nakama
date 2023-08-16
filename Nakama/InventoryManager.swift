@@ -10,14 +10,17 @@ import Foundation
 class InventoryManager: ObservableObject {
 
     @Published var YourInventory: Inventory // Should potentially separate into separate view model
-
-    init(name: String, element: Element) {
+    typealias Slot = Inventory.Item.Slot
+    
+    init() {
         YourInventory = Inventory(items: [])
     }
 
 
     // MARK: - Intent(s)
     
-    
+    func addItem(name: String, statModifiers: Stats, slot: Slot) {
+        YourInventory.addItem(name: name, statModifiers: statModifiers, slot: slot)
+    }
     
 }

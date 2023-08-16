@@ -8,13 +8,18 @@
 import Foundation
 
 struct Inventory {
-    private(set) var items: [Item]
+    private(set) var itemInventory: [Item]
     var full: Bool {
-        items.count > 10
+        itemInventory.count > 10
     }
     
     init(items: [Item]) {
-        self.items = items
+        itemInventory = items
+    }
+    
+    mutating func addItem(name: String, statModifiers: Stats, slot: Item.Slot) {
+        let newItem = Item(name: name, statModifiers: statModifiers, slot: slot, id: itemInventory.count)
+        itemInventory.append(newItem)
     }
     
     struct Item: Identifiable {
