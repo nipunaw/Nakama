@@ -16,7 +16,7 @@ struct InventoryView: View {
     var body: some View {
         VStack {
             Text("Inventory Items")
-            ForEach(manager.YourInventory.items) { item in
+            ForEach(manager.YourInventory.itemInventory) { item in
                 Text(item.name)
             }
         }
