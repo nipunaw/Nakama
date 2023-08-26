@@ -10,13 +10,14 @@ import SwiftUI
 @main
 struct NakamaApp: App {
     var body: some Scene {
+        let manager = NakamaManager(name: "", element: Element.fire)
+        
         WindowGroup {
-            let manager = NakamaManager(name: "", element: Element.fire)
             NakamaAttributesView(manager: manager)
         }
 
         ImmersiveSpace(id: "ImmersiveSpace") {
-            ImmersiveView()
+            ImmersiveView(manager: manager)
         }
     }
 }

@@ -30,9 +30,6 @@ struct NakamaAttributesView: View {
                 } else {
                     summonNakamaForm
                 }
-                //                Toggle("Show ImmersiveSpace", isOn: $showImmersiveSpace)
-                //                    .toggleStyle(.button)
-                //                    .padding(.top, 50)
             }
             .navigationTitle("Nakama")
             .padding()
@@ -99,13 +96,9 @@ struct NakamaAttributesView: View {
                 Image(systemName: "hare")
                 Text("Agility: \(manager.YourNakama.stats.agility)")
             }
-            if manager.YourNakama.element == Element.fire {
-                NakamaView(nakamaColor: .red)
-            } else if manager.YourNakama.element == Element.water {
-                NakamaView(nakamaColor: .blue)
-            } else {
-                NakamaView(nakamaColor: .green)
-            }
+            Toggle("See Nakama", isOn: $showImmersiveSpace)
+                                .toggleStyle(.button)
+                                .padding(.top, 50)
         }
         .font(.largeTitle)
     }

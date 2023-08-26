@@ -9,18 +9,15 @@ import SwiftUI
 import RealityKit
 import RealityKitContent
 
-struct ImmersiveView: View {
+struct ImmersiveView: View { // Will need this immersive view to have companion placed correctly (environment-aware)
+    @ObservedObject var manager: NakamaManager
+    
     var body: some View {
-        RealityView { content in
-            // Add the initial RealityKit content
-            if let scene = try? await Entity(named: "Immersive", in: realityKitContentBundle) {
-                content.add(scene)
-            }
-        }
+        NakamaView(nakamaColor: manager.color())
     }
 }
 
 #Preview {
-    ImmersiveView()
+    ImmersiveView(manager: NakamaManager(name: "", element: Element.fire))
         .previewLayout(.sizeThatFits)
 }
