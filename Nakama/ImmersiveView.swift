@@ -10,7 +10,7 @@ import RealityKit
 import RealityKitContent
 
 struct ImmersiveView: View { // Will need this immersive view to have companion placed correctly (environment-aware)
-    @ObservedObject var manager: NakamaManager
+    var manager: NakamaManager
     
     var body: some View {
         NakamaView(nakamaColor: manager.color())

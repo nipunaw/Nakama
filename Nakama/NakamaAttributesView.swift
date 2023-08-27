@@ -11,7 +11,7 @@ import RealityKitContent
 
 struct NakamaAttributesView: View {
     
-    @ObservedObject var manager: NakamaManager
+    @Bindable var manager: NakamaManager
     @State private var showImmersiveSpace = false
     @State private var showProfile = false
     @Environment(\.openImmersiveSpace) var openImmersiveSpace

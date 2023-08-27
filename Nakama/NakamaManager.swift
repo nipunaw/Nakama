@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import Observation
 
-class NakamaManager: ObservableObject {
+@Observable class NakamaManager {
 
-    @Published var YourNakama: Nakama
+    var YourNakama: Nakama
 
     init(name: String, element: Element) {
         YourNakama = Nakama(name: name, element: element)
