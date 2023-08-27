@@ -18,6 +18,6 @@ struct ImmersiveView: View { // Will need this immersive view to have companion 
 }
 
 #Preview {
-    ImmersiveView(manager: NakamaManager(name: "", element: Element.fire))
+    ImmersiveView(manager: NakamaManager())
         .previewLayout(.sizeThatFits)
 }

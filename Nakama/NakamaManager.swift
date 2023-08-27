@@ -11,13 +11,22 @@ import Observation
 @Observable class NakamaManager {
 
     var YourNakama: Nakama
+    var summoned: Bool
 
-    init(name: String, element: Element) {
-        YourNakama = Nakama(name: name, element: element)
+    init() {
+        YourNakama = Nakama()
+        summoned = false
     }
 
-
     // MARK: - Intent(s)
+    
+    func chooseName(_ pickedName: String) {
+        YourNakama.chooseName(pickedName)
+    }
+    
+    func chooseElement(_ pickedElement: Element) {
+        YourNakama.chooseElement(pickedElement)
+    }
     
     func color() -> UIColor {
         if YourNakama.element == Element.fire { return .red }

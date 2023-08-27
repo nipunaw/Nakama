@@ -11,9 +11,10 @@ import RealityKitContent
 
 struct NakamaAttributesView: View {
     
-    @Bindable var manager: NakamaManager
+    var manager: NakamaManager
+    @State private var nakamaName: String = ""
+    @State private var nakamaElement: Element = Element.fire
     @State private var showImmersiveSpace = false
-    @State private var showProfile = false
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     
@@ -25,7 +26,7 @@ struct NakamaAttributesView: View {
             .navigationTitle("Menu")
         } detail: {
             VStack {
-                if showProfile {
+                if manager.summoned {
                     nakamaProfile
                 } else {
                     summonNakamaForm
@@ -55,13 +56,13 @@ struct NakamaAttributesView: View {
     
     var nameSection: some View {
         Section("Your Nakama's name") {
-            TextField("Name", text: $manager.YourNakama.name)
+            TextField("Name", text: $nakamaName)
         }
     }
     
     var elementSection: some View {
         Section("Element") {
-            Picker("Select an element", selection: $manager.YourNakama.element) {
+            Picker("Select an element", selection: $nakamaElement) {
                 ForEach(Element.allCases, id: \.self) { element in
                     Text(element.rawValue)
                 }
@@ -71,7 +72,9 @@ struct NakamaAttributesView: View {
     
     var summonButton: some View {
         Button("Summon Nakama") {
-            showProfile = true
+            manager.chooseName(nakamaName)
+            manager.chooseElement(nakamaElement)
+            manager.summoned = true
         }
     }
     
@@ -106,5 +109,5 @@ struct NakamaAttributesView: View {
 }
 
 #Preview {
-    NakamaAttributesView(manager: NakamaManager(name: "", element: Element.fire))
+    NakamaAttributesView(manager: NakamaManager())
 }

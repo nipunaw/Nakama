@@ -8,16 +8,24 @@
 import Foundation
 
 struct Nakama {
-    var name: String
-    var element: Element
+    private(set) var name: String
+    private(set) var element: Element
     private(set) var friendship: Int
     private(set) var stats: Stats
 
-    init(name: String, element: Element) {
-        self.name = name
-        self.element = element
+    init() { // Nakama defaults
+        self.name = ""
+        self.element = Element.fire
         self.friendship = 0
         self.stats = Stats(attack: Int.random(in: 1...3), defense: Int.random(in: 1...3), agility: Int.random(in: 1...3))
+    }
+    
+    mutating func chooseName(_ name: String) {
+        self.name = name
+    }
+    
+    mutating func chooseElement(_ element: Element) {
+        self.element = element
     }
 
     enum Element: String, CaseIterable {

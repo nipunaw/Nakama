@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct NakamaApp: App {
     var body: some Scene {
-        let manager = NakamaManager(name: "", element: Element.fire)
+        let manager = NakamaManager()
         
         WindowGroup {
             NakamaAttributesView(manager: manager)
