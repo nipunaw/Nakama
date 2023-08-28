@@ -7,7 +7,7 @@
 
 import SwiftUI
 import RealityKit
-import RealityKitContent
+import NakamaAssets
 
 struct NakamaView: View {
     
@@ -16,13 +16,13 @@ struct NakamaView: View {
     
     var body: some View {
         RealityView { content in
-            let model = ModelEntity(
-                mesh: .generateSphere(radius: 0.1),
-                materials: [SimpleMaterial(color: nakamaColor, isMetallic: false)]
-            )
-            content.add(model)
-            model.components.set(InputTargetComponent())
-            model.components.set(CollisionComponent(shapes: [.generateSphere(radius: 0.1)]))
+            guard let nakama = try? await Entity(named: "Scene", in: nakamaAssetsBundle) else {
+                fatalError("Unable to load Nakama model.")
+            }
+            content.add(nakama)
+            nakama.components.set(InputTargetComponent())
+            nakama.generateCollisionShapes(recursive: true)
+            nakama.components[PhysicsBodyComponent.self] = PhysicsBodyComponent()
         } update: { content in
             if let model = content.entities.first {
                 model.transform.scale = pet ? [2.0, 2.0, 2.0] : [1.0, 1.0, 1.0]

@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6F4BD90A2A7C7DBB005D30F0 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = 6F4BD9092A7C7DBB005D30F0 /* RealityKitContent */; };
 		6F4BD90C2A7C7DBB005D30F0 /* NakamaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4BD90B2A7C7DBB005D30F0 /* NakamaApp.swift */; };
 		6F4BD90E2A7C7DBB005D30F0 /* NakamaAttributesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4BD90D2A7C7DBB005D30F0 /* NakamaAttributesView.swift */; };
 		6F4BD9102A7C7DBB005D30F0 /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4BD90F2A7C7DBB005D30F0 /* ImmersiveView.swift */; };
@@ -20,11 +19,12 @@
 		6F7B3BEA2A85F03500A2BCBC /* InventoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7B3BE92A85F03500A2BCBC /* InventoryManager.swift */; };
 		6F7B3BEC2A85F05800A2BCBC /* InventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7B3BEB2A85F05800A2BCBC /* InventoryView.swift */; };
 		6F7B3BEE2A8600AA00A2BCBC /* NakamaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7B3BED2A8600AA00A2BCBC /* NakamaView.swift */; };
+		6FB1D9012A9C1D0E009FDB83 /* NakamaAssets in Resources */ = {isa = PBXBuildFile; fileRef = 6FB1D9002A9C1D0E009FDB83 /* NakamaAssets */; };
+		6FB1D9042A9C1D9E009FDB83 /* NakamaAssets in Frameworks */ = {isa = PBXBuildFile; productRef = 6FB1D9032A9C1D9E009FDB83 /* NakamaAssets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6F4BD9042A7C7DBB005D30F0 /* Nakama.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nakama.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6F4BD9082A7C7DBB005D30F0 /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		6F4BD90B2A7C7DBB005D30F0 /* NakamaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NakamaApp.swift; sourceTree = "<group>"; };
 		6F4BD90D2A7C7DBB005D30F0 /* NakamaAttributesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NakamaAttributesView.swift; sourceTree = "<group>"; };
 		6F4BD90F2A7C7DBB005D30F0 /* ImmersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveView.swift; sourceTree = "<group>"; };
@@ -37,6 +37,7 @@
 		6F7B3BE92A85F03500A2BCBC /* InventoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryManager.swift; sourceTree = "<group>"; };
 		6F7B3BEB2A85F05800A2BCBC /* InventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryView.swift; sourceTree = "<group>"; };
 		6F7B3BED2A8600AA00A2BCBC /* NakamaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NakamaView.swift; sourceTree = "<group>"; };
+		6FB1D9002A9C1D0E009FDB83 /* NakamaAssets */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = NakamaAssets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,7 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F4BD90A2A7C7DBB005D30F0 /* RealityKitContent in Frameworks */,
+				6FB1D9042A9C1D9E009FDB83 /* NakamaAssets in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +91,7 @@
 		6F4BD9072A7C7DBB005D30F0 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				6F4BD9082A7C7DBB005D30F0 /* RealityKitContent */,
+				6FB1D9002A9C1D0E009FDB83 /* NakamaAssets */,
 			);
 			path = Packages;
 			sourceTree = "<group>";
@@ -120,7 +121,7 @@
 			);
 			name = Nakama;
 			packageProductDependencies = (
-				6F4BD9092A7C7DBB005D30F0 /* RealityKitContent */,
+				6FB1D9032A9C1D9E009FDB83 /* NakamaAssets */,
 			);
 			productName = Nakama;
 			productReference = 6F4BD9042A7C7DBB005D30F0 /* Nakama.app */;
@@ -150,6 +151,9 @@
 				Base,
 			);
 			mainGroup = 6F4BD8FB2A7C7DBB005D30F0;
+			packageReferences = (
+				6FB1D9022A9C1D9E009FDB83 /* XCLocalSwiftPackageReference "Packages/NakamaAssets" */,
+			);
 			productRefGroup = 6F4BD9052A7C7DBB005D30F0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -164,6 +168,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FB1D9012A9C1D0E009FDB83 /* NakamaAssets in Resources */,
 				6F4BD9152A7C7DBF005D30F0 /* Preview Assets.xcassets in Resources */,
 				6F4BD9122A7C7DBF005D30F0 /* Assets.xcassets in Resources */,
 			);
@@ -386,10 +391,17 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		6FB1D9022A9C1D9E009FDB83 /* XCLocalSwiftPackageReference "Packages/NakamaAssets" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/NakamaAssets;
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
-		6F4BD9092A7C7DBB005D30F0 /* RealityKitContent */ = {
+		6FB1D9032A9C1D9E009FDB83 /* NakamaAssets */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = RealityKitContent;
+			productName = NakamaAssets;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
