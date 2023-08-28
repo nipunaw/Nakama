@@ -33,4 +33,28 @@ import Observation
         else if YourNakama.element == Element.earth { return .green }
         else { return .blue }
     }
+    
+    func name() -> String {
+        YourNakama.name
+    }
+    
+    func element() -> Element {
+        YourNakama.element
+    }
+    
+    func friendship() -> Int {
+        YourNakama.friendship
+    }
+    
+    func attack() -> Int {
+        YourNakama.stats.attack
+    }
+    
+    func defense() -> Int {
+        YourNakama.stats.defense
+    }
+    
+    func agility() -> Int {
+        YourNakama.stats.agility
+    }
 }

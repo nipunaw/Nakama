@@ -7,7 +7,7 @@
 
 import SwiftUI
 import RealityKit
-import RealityKitContent
+import NakamaAssets
 
 struct NakamaAttributesView: View {
     
@@ -15,6 +15,7 @@ struct NakamaAttributesView: View {
     @State private var nakamaName: String = ""
     @State private var nakamaElement: Element = Element.fire
     @State private var showImmersiveSpace = false
+    @Environment(\.openWindow) var openWindow
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     
@@ -34,15 +35,6 @@ struct NakamaAttributesView: View {
             }
             .navigationTitle("Nakama")
             .padding()
-        }
-        .onChange(of: showImmersiveSpace) { _, newValue in
-            Task {
-                if newValue {
-                    await openImmersiveSpace(id: "ImmersiveSpace")
-                } else {
-                    await dismissImmersiveSpace()
-                }
-            }
         }
     }
     
@@ -79,31 +71,43 @@ struct NakamaAttributesView: View {
     }
     
     var nakamaProfile: some View {
-        VStack {
-            Text("Your Nakama \(manager.YourNakama.name)")
-            HStack{
-                Image(systemName: "heart")
-                Text("Friendship Level: \(manager.YourNakama.friendship)")
+        HStack {
+            VStack(alignment: .leading) {
+                Text("Your Nakama \(manager.name())")
+                HStack{
+                    Image(systemName: "heart")
+                    Text("Friendship Level: \(manager.friendship())")
+                }
+                HStack {
+                    if manager.element() == .fire { Image(systemName: "flame") }
+                    else if manager.element() == .water { Image(systemName: "drop") }
+                    else { Image(systemName: "leaf") }
+                    Text("Ki: \(manager.attack())")
+                }
+                HStack {
+                    Image(systemName: "shield")
+                    Text("Defense: \(manager.defense())")
+                }
+                HStack {
+                    Image(systemName: "hare")
+                    Text("Agility: \(manager.agility())")
+                }
+                Button("View Nakama") {
+                    openWindow(id: "Nakama")
+                }
+//                Button("Play with Nakama") {
+//                    Task {
+//                        await openImmersiveSpace(id: "ImmersiveSpace")
+//                    }
+//                }
             }
-            HStack {
-                if manager.YourNakama.element == Element.fire { Image(systemName: "flame") }
-                else if manager.YourNakama.element == Element.water { Image(systemName: "drop") }
-                else { Image(systemName: "leaf") }
-                Text("Ki: \(manager.YourNakama.stats.attack)")
-            }
-            HStack {
-                Image(systemName: "shield")
-                Text("Defense: \(manager.YourNakama.stats.defense)")
-            }
-            HStack {
-                Image(systemName: "hare")
-                Text("Agility: \(manager.YourNakama.stats.agility)")
-            }
-            Toggle("See Nakama", isOn: $showImmersiveSpace)
-                                .toggleStyle(.button)
-                                .padding(.top, 50)
+            .font(.largeTitle)
+            .padding(30)
+            Image("Cat")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 300)
         }
-        .font(.largeTitle)
     }
     
 }
