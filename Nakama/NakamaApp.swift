@@ -17,7 +17,7 @@ struct NakamaApp: App {
             Nakama2DMenu()
                 .environment(manager)
         }
-        .defaultSize(width: 900, height: 700)
+        .defaultSize(width: 900, height: 750)
         
         WindowGroup(id: "Nakama") { // Volume
             Nakama3DBasicView()

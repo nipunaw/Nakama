@@ -49,10 +49,13 @@ struct Nakama2DMenu: View {
     }
     
     var summonNakamaForm: some View {
-        return Form {
-            nameSection
-            elementSection
-            summonButton
+        VStack {
+            Text("Create Nakama").font(.extraLargeTitle).padding(-10)
+            Form {
+                nameSection
+                elementSection
+                summonButton
+            }
         }
         .alert("Please provide a name", isPresented: $showNoNameAlert) {}
         .alert("Please provide shorter name (< 10 char)", isPresented: $showLargeNameAlert) {}
@@ -86,12 +89,16 @@ struct Nakama2DMenu: View {
                 manager.summoned = true
             }
         }
+        .frame(maxWidth: .infinity)
     }
     
     var nakamaProfile: some View {
-        HStack {
-            profileStats
-            profileImage
+        VStack {
+            Text("Your Nakama's Stats").font(.extraLargeTitle)
+            HStack {
+                profileStats
+                profileImage
+            }
         }
         .toolbar {
             ToolbarItemGroup(placement: .bottomOrnament) {
@@ -116,9 +123,14 @@ struct Nakama2DMenu: View {
                         .gridColumnAlignment(.leading)
                     Text(stat.value)
                 }
-                .padding(5)
+                if stat.id != stats.count-1 {
+                    Divider()
+                }
             }
         }
+        .padding()
+        .background(.regularMaterial,
+                    in: .rect(cornerRadius: 12))
         
     }
     
@@ -132,8 +144,6 @@ struct Nakama2DMenu: View {
     
     var profileToolItems: some View {
         @Bindable var manager = manager
-        print("Viewing: \(manager.inspecting)")
-        print("Immerse: \(manager.playing)")
         return Group {
             WindowToggle(icon: "magnifyingglass.circle", id: "Nakama", isShowing: $manager.inspecting)
             VStack {
