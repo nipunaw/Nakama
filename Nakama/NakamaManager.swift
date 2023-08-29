@@ -12,10 +12,14 @@ import Observation
 
     var YourNakama: Nakama
     var summoned: Bool
+    var inspecting: Bool
+    var playing: Bool
 
     init() {
         YourNakama = Nakama()
         summoned = false
+        inspecting = false
+        playing = false
     }
 
     // MARK: - Intent(s)
@@ -32,6 +36,12 @@ import Observation
         if YourNakama.element == Element.fire { return .red }
         else if YourNakama.element == Element.earth { return .green }
         else { return .blue }
+    }
+    
+    func kiIcon() -> String {
+        if YourNakama.element == Element.fire { return "flame" }
+        else if YourNakama.element == Element.earth { return "leaf" }
+        else { return "drop" }
     }
     
     func name() -> String {

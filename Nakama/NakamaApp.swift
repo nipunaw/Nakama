@@ -10,16 +10,18 @@ import NakamaAssets
 
 @main
 struct NakamaApp: App {
+    @State private var manager = NakamaManager()
     
     var body: some Scene {
-        let manager = NakamaManager()
-        
         WindowGroup { // Window
-            NakamaAttributesView(manager: manager)
+            Nakama2DMenu()
+                .environment(manager)
         }
+        .defaultSize(width: 900, height: 700)
         
         WindowGroup(id: "Nakama") { // Volume
-            NakamaView()
+            Nakama3DBasicView()
+                .environment(manager)
         }
         .windowStyle(.volumetric)
         .defaultSize(width: 0.5, height: 0.5, depth: 0.5, in: .meters)
