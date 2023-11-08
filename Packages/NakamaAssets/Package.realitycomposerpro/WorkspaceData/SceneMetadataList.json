@@ -3,9 +3,7 @@
     "objectMetadataList" : [
       [
         "23E26F3B-20F1-492A-BA59-5E726A307130",
-        "Root",
-        "Nakama",
-        "Materials"
+        "Root"
       ],
       {
         "isExpanded" : true,
@@ -22,7 +20,9 @@
       },
       [
         "23E26F3B-20F1-492A-BA59-5E726A307130",
-        "Root"
+        "Root",
+        "Nakama",
+        "Materials"
       ],
       {
         "isExpanded" : true,

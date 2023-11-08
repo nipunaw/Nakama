@@ -29,6 +29,7 @@ struct NakamaApp: App {
 
         ImmersiveSpace(id: "ImmersiveSpace") {
             ImmersiveView(nakamaColor: .red)
+                .environment(manager)
         }
     }
 }
