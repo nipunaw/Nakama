@@ -25,6 +25,13 @@ struct ImmersiveView: View { // Will need this immersive view to have companion 
                 nakama.components.set(InputTargetComponent())
                 nakama.generateCollisionShapes(recursive: true)
                 nakama.components[PhysicsBodyComponent.self] = PhysicsBodyComponent()
+                //Accessibility
+                var accessibilityComponent = AccessibilityComponent()
+                accessibilityComponent.isAccessibilityElement = true
+                accessibilityComponent.traits = [.button, .playsSound] // Acts like a button that may play sound for future petting functionality
+                accessibilityComponent.label = "Your Nakama \(manager.name())"
+                accessibilityComponent.value = "Neutral"
+                nakama.components[AccessibilityComponent.self] = accessibilityComponent
             }
             
         } update: { content in
@@ -42,6 +49,7 @@ struct ImmersiveView: View { // Will need this immersive view to have companion 
                 let movementOptions = [0, 1, 2]
                 self.moveAmount = movementOptions.randomElement()!
             }
+            AccessibilityNotification.Announcement("Your Nakama appeared!").post()
         }
         .gesture(TapGesture().targetedToAnyEntity().onEnded { _ in
             pet.toggle()
